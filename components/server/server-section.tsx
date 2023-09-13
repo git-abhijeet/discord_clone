@@ -4,6 +4,7 @@ import { ServerWithMembersWithProfiles } from "@/types";
 
 import { ChannelType, MemberRole } from "@prisma/client";
 import { ActionTooltip } from "@/components/action-tooltip";
+import { Plus } from "lucide-react";
 
 interface ServerSectionProps {
     label: string;
@@ -20,7 +21,11 @@ export const ServerSection = ({ label, role, sectionType, channelType, server }:
                 {label}
             </p>
             {role !== MemberRole.GUEST && sectionType === "channels" && (
-                <ActionTooltip />
+                <ActionTooltip label="Create Channel" side="top">
+                    <button>
+                        <Plus />
+                    </button>
+                </ActionTooltip>
             )}
         </div>
     )
